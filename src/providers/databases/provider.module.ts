@@ -1,21 +1,8 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { mysqlConfig } from "../../config/databases/mysql/mysql.config";
-import { addTransactionalDataSource } from "typeorm-transactional";
-import { DataSource } from "typeorm";
+import mysqlConfig from "../../config/databases/mysql/mysql.config";
 
 @Module({
-	imports: [
-		TypeOrmModule.forRootAsync({
-			useFactory: async () => mysqlConfig,
-			async dataSourceFactory(options) {
-				if (!options) {
-					throw new Error("Invalid options passed");
-				}
-
-				return addTransactionalDataSource(new DataSource(options));
-			},
-		}),
-	],
+	imports: [TypeOrmModule.forRootAsync(mysqlConfig)],
 })
 export class DatabaseProviderModule {}

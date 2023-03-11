@@ -1,6 +1,7 @@
 import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntityInterface, WithDateInterface } from "../interfaces/base-entity.interface";
 
-export class WithDate {
+export class WithDate implements WithDateInterface {
 	@CreateDateColumn()
 	createdAt: Date;
 
@@ -11,7 +12,7 @@ export class WithDate {
 	deletedAt: Date;
 }
 
-export class BaseEntity extends WithDate {
+export class BaseEntity extends WithDate implements BaseEntityInterface {
 	@PrimaryGeneratedColumn("uuid")
 	id: string;
 }
