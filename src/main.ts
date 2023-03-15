@@ -4,7 +4,7 @@ import { initializeTransactionalContext } from "typeorm-transactional";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import "reflect-metadata";
 import * as morgan from "morgan";
-import { ValidationPipe } from "@nestjs/common";
+import { ValidationPipe, VERSION_NEUTRAL, VersioningType } from "@nestjs/common";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 async function bootstrap() {
