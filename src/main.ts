@@ -16,6 +16,10 @@ async function bootstrap() {
 
 	//Global config
 	app.setGlobalPrefix("api");
+	app.enableVersioning({
+		type: VersioningType.URI,
+		defaultVersion: VERSION_NEUTRAL,
+	});
 	app.useStaticAssets("public", {
 		prefix: "/public",
 	});
