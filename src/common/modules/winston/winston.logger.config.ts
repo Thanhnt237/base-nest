@@ -27,8 +27,8 @@ export const transportDailyFileConfig = {
 };
 
 export const transportHTTPConfig = {
-	silent: false,
-	host: "14.225.204.231",
+	silent: true,
+	host: "localhost",
 	port: 54237,
-	path: `/logger/${process.env.ENV || "production"}/1way`,
+	path: `/logger`,
 };
